@@ -45,10 +45,10 @@ data "aws_iam_policy_document" "policy" {
 
 // cdn
 
-# data "aws_acm_certificate" "certificate" {
-#   provider = "aws.us"
-#   domain = "${var.domain}"
-# }
+data "aws_acm_certificate" "certificate" {
+  provider = "aws.us"
+  domain = "${var.domain}"
+}
 
 resource "aws_cloudfront_distribution" "cdn" {
   price_class = "PriceClass_200"
@@ -101,15 +101,15 @@ resource "aws_cloudfront_distribution" "cdn" {
     }
   }
 
-  # viewer_certificate {
-  #   acm_certificate_arn = "${data.aws_acm_certificate.certificate.arn}"
-  #   ssl_support_method = "sni-only"
-  #   minimum_protocol_version = "TLSv1"
-  # }
-
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = "${data.aws_acm_certificate.certificate.arn}"
+    ssl_support_method = "sni-only"
+    minimum_protocol_version = "TLSv1"
   }
+
+  # viewer_certificate {
+  #   cloudfront_default_certificate = true
+  # }
 
    aliases = ["www.${var.domain}"]
 }
