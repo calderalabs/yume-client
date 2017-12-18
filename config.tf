@@ -57,14 +57,7 @@ resource "aws_cloudfront_distribution" "cdn" {
 
   origin {
     origin_id = "origin-bucket-${aws_s3_bucket.bucket.id}"
-    domain_name = "${aws_s3_bucket.bucket.website_endpoint}"
-
-    custom_origin_config {
-      http_port = 80
-      https_port = 443
-      origin_protocol_policy = "https-only"
-      origin_ssl_protocols = ["TLSv1", "TLSv1.1", "TLSv1.2"]
-    }
+    domain_name = "${aws_s3_bucket.bucket.bucket_domain_name}"
   }
 
   custom_error_response {
@@ -104,14 +97,13 @@ resource "aws_cloudfront_distribution" "cdn" {
   viewer_certificate {
     acm_certificate_arn = "${data.aws_acm_certificate.certificate.arn}"
     ssl_support_method = "sni-only"
-    minimum_protocol_version = "TLSv1"
   }
 
   # viewer_certificate {
   #   cloudfront_default_certificate = true
   # }
 
-   aliases = ["www.${var.domain}"]
+   aliases = ["${var.domain}", "www.${var.domain}"]
 }
 
 // dns
