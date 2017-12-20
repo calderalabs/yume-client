@@ -2,7 +2,7 @@
 
 let apiBaseUrl = switch environment {
   | "development" => "http://localhost:3000"
-  | "production" => "https://associazioneyume.com"
+  | "production" => "http://associazione-yume.herokuapp.com/"
   | _ => "http://localhost:3000"
 };
 
