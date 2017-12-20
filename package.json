@@ -16,7 +16,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prepare": "npm link bs-platform",
-    "deploy": "npm run build && aws s3 sync build/ s3://yume-client-production"
+    "deploy": "npm run build && aws s3 sync build/ s3://yume-client-production",
+    "ivalidate-cache":
+      "aws cloudfront create-invalidation --distribution-id $(terraform output cdn_id) --paths /index.html"
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
