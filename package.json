@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "bs-director": "^0.0.6",
+    "bs-fetch": "0.2.0",
+    "bs-json": "0.2.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "reason-scripts": "0.8.0"

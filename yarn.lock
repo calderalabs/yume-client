@@ -1173,11 +1173,19 @@ bs-director@^0.0.6:
   dependencies:
     director "^1.2.8"
 
+bs-fetch@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/bs-fetch/-/bs-fetch-0.2.0.tgz#0537d70169c5746b16eeba8639df7442057db7cf"
+
 bs-jest@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/bs-jest/-/bs-jest-0.2.0.tgz#62576e00c35f069d7681b9bb9bfd744dc7197eb7"
   dependencies:
     jest "^21.2.1"
+
+bs-json@0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/bs-json/-/bs-json-0.2.4.tgz#dc09dad32ebb27ba71ed587ed76366f193fb96e8"
 
 bs-loader@^1.8.0:
   version "1.8.2"
