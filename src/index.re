@@ -6,6 +6,10 @@ register_service_worker();
 
 let renderForRoute = (route) => ReactDOMRe.renderToElementWithId(<App route />, "root");
 
-let router = DirectorRe.makeRouter({"/": () => renderForRoute(Routing.Home)});
+let router =
+  DirectorRe.makeRouter({
+    "/": () => renderForRoute(Routing.Events),
+    "about-us": () => renderForRoute(Routing.AboutUs)
+  });
 
 DirectorRe.init(router, "/");

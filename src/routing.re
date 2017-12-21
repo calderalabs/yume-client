@@ -1,2 +1,3 @@
 type route =
-  | Home;
+  | Events
+  | AboutUs;
