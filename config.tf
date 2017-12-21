@@ -14,6 +14,16 @@ provider "dnsimple" {
   account = "${var.dnsimple_account}"
 }
 
+// backend
+
+terraform {
+  backend "s3" {
+    bucket = "caldera-terraform"
+    key    = "yume-client-production"
+    region = "${var.regions["eu"]}"
+  }
+}
+
 // s3
 
 resource "aws_s3_bucket" "bucket" {
