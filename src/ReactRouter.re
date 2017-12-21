@@ -4,7 +4,7 @@ module Route = {
       (
         ~exact=false,
         ~path: string,
-        ~component: ('a => ReasonReact.reactElement),
+        ~component: (unit => ReasonReact.reactElement),
         children
       ) =>
     ReasonReact.wrapJsForReason(
