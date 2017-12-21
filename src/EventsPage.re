@@ -39,8 +39,8 @@ let make = (_children) => {
             <ul>
               (
                 self.state.events
-                |> Array.mapi(
-                     (index, event) => <EventListItem key=(string_of_int(index)) event />
+                |> Array.map(
+                     (event) => <EventListItem key=(string_of_int(event.EventData.id)) event />
                    )
                 |> arrayEl
               )
