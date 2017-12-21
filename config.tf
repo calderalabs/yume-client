@@ -130,7 +130,7 @@ output "cdn_id" {
 }
 
 output "bucket_name" {
-  value = "${var.bucket}"
+  value = "${aws_s3_bucket.bucket.bucket}"
 }
 
 output "bucket_region" {
