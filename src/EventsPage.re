@@ -34,7 +34,7 @@ let make = (_children) => {
       <div>
         (
           if (self.state.loading) {
-            textEl("Loading")
+            <Spinner />
           } else if (Array.length(self.state.events) > 0) {
             <ul>
               (

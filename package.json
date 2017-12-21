@@ -10,7 +10,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "reason-scripts": "0.8.0"
+    "reason-scripts": "0.8.0",
+    "spinkit": "^1.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
