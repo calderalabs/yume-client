@@ -1,27 +1,27 @@
 open Utils;
+open ReactRouter;
 
 [%bs.raw {|require('./app.css')|}];
 
 let component = ReasonReact.statelessComponent("App");
 
-let make = (~route, _children) => {
+let make = (_children) => {
   ...component,
   render: (_self) => {
-    let page =
-      switch route {
-      | Routing.Events => <EventsPage />
-      | Routing.AboutUs => <AboutUsPage />
-      };
-
-    <div>
-      <header>
-        <h1> (textEl("Associazione Yume")) </h1>
-        <ul>
-          <li> <Link currentRoute=route route=Routing.Events href="#/">(textEl("Eventi"))</Link> </li>
-          <li> <Link currentRoute=route route=Routing.AboutUs href="#/about-us">(textEl("About Us"))</Link> </li>
-        </ul>
-      </header>
-      <section> page </section>
-    </div>
+    <BrowserRouter>
+      <div>
+        <header>
+          <h1> (textEl("Associazione Yume")) </h1>
+          <ul>
+            <li> <NavLink exact=true _to="/">(textEl("Eventi"))</NavLink> </li>
+            <li> <NavLink _to="/about-us">(textEl("About Us"))</NavLink> </li>
+          </ul>
+        </header>
+        <section>
+          <Route exact=true path="/" component=(() => <EventsPage/>)/>
+          <Route path="/about-us" component=(() => <AboutUsPage/>)/>
+        </section>
+      </div>
+    </BrowserRouter>
   }
 };

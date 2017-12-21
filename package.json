@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bs-director": "^0.0.6",
     "bs-fetch": "^0.2.0",
     "bs-json": "^0.2.4",
     "bs-moment": "^0.1.8",
     "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "reason-scripts": "0.8.0"
   },
   "scripts": {
@@ -18,10 +18,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prepare": "npm link bs-platform",
-    "deploy":
-      "npm run build && stout deploy --bucket $(terraform output bucket_name) --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY --root ./build --region $(terraform output bucket_region) && yarn invalidate-cache",
-    "invalidate-cache":
-      "aws cloudfront create-invalidation --distribution-id $(terraform output cdn_id) --paths /index.html"
+    "deploy": "npm run build && stout deploy --bucket $(terraform output bucket_name) --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY --root ./build --region $(terraform output bucket_region) && yarn invalidate-cache",
+    "invalidate-cache": "aws cloudfront create-invalidation --distribution-id $(terraform output cdn_id) --paths /index.html"
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
