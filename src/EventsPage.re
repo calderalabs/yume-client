@@ -46,7 +46,7 @@ let make = (_children) => {
               )
             </ul>
           } else {
-            ReasonReact.nullElement
+            textEl("There are no events")
           }
         )
       </div>
