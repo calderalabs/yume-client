@@ -1,12 +1,12 @@
 // providers
 
 provider "aws" {
-  region = "eu-west-1"
+  region = "${var.regions["eu"]}"
 }
 
 provider "aws" {
   alias  = "us"
-  region = "us-east-1"
+  region = "${var.regions["us"]}"
 }
 
 provider "dnsimple" {
@@ -127,4 +127,12 @@ resource "dnsimple_record" "cname" {
 
 output "cdn_id" {
   value = "${aws_cloudfront_distribution.cdn.id}"
+}
+
+output "bucket_name" {
+  value = "${var.bucket}"
+}
+
+output "bucket_region" {
+  value = "${aws_s3_bucket.bucket.region}"
 }
