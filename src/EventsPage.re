@@ -36,7 +36,15 @@ let make = (_children) => {
           if (self.state.loading) {
             textEl("Loading")
           } else if (Array.length(self.state.events) > 0) {
-            self.state.events |> Array.map(({EventData.title}) => textEl(title)) |> arrayEl
+            <ul>
+              (
+                self.state.events
+                |> Array.mapi(
+                     (index, event) => <EventListItem key=(string_of_int(index)) event />
+                   )
+                |> arrayEl
+              )
+            </ul>
           } else {
             ReasonReact.nullElement
           }

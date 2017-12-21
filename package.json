@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "bs-director": "^0.0.6",
-    "bs-fetch": "0.2.0",
-    "bs-json": "0.2.4",
+    "bs-fetch": "^0.2.0",
+    "bs-json": "^0.2.4",
+    "bs-moment": "^0.1.8",
+    "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "reason-scripts": "0.8.0"
@@ -16,10 +18,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prepare": "npm link bs-platform",
-    "deploy":
-      "npm run build && aws s3 sync build/ s3://yume-client-production --delete",
-    "invalidate-cache":
-      "aws cloudfront create-invalidation --distribution-id $(terraform output cdn_id) --paths /index.html"
+    "deploy": "npm run build && aws s3 sync build/ s3://yume-client-production --delete",
+    "invalidate-cache": "aws cloudfront create-invalidation --distribution-id $(terraform output cdn_id) --paths /index.html"
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
