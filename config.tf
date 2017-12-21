@@ -20,7 +20,6 @@ terraform {
   backend "s3" {
     bucket = "caldera-terraform"
     key    = "yume-client-production"
-    region = "${var.regions["eu"]}"
   }
 }
 
