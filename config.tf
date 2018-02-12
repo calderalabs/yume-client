@@ -18,8 +18,9 @@ provider "dnsimple" {
 
 terraform {
   backend "s3" {
-    bucket = "caldera-terraform"
+    bucket = "calderalabs-terraform"
     key    = "yume-client-production"
+    region = "eu-west-1"
   }
 }
 
