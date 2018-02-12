@@ -1,4 +1,4 @@
-[%bs.raw {|require('./index.css')|}];
+[%bs.raw {|require('foundation-sites/dist/css/foundation.css')|}];
 
 [@bs.module "./registerServiceWorker"] external register_service_worker : unit => unit = "default";
 

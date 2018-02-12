@@ -6,6 +6,7 @@
     "bs-fetch": "^0.2.0",
     "bs-json": "^0.2.4",
     "bs-moment": "^0.1.8",
+    "foundation-sites": "^6.4.4-rc1",
     "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
