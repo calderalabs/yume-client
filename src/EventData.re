@@ -5,7 +5,7 @@ open MomentRe;
 let apiBaseUrl =
   switch environment {
   | "development" => "http://localhost:3000"
-  | "production" => "https://api.associazioneyume.com/"
+  | "production" => "https://api.associazioneyume.com"
   | _ => "http://localhost:3000"
   };
 
